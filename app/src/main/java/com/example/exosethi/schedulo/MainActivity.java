@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnTouchListener,View.OnClickListener {
     private Button register=null;
+    private Button connect=null;
     //
     final String EXTRA_LOGIN = "identifiant_input";
     final String EXTRA_PASSWORD = "password_input";
@@ -37,13 +38,18 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             loginDisplay.setText(intent.getStringExtra(EXTRA_LOGIN));
             passwordDisplay.setText(intent.getStringExtra(EXTRA_PASSWORD));
         }*/
-        identifiant_inputText=(EditText)findViewById(R.id.identifiant_input);
-        password_inputText=(EditText)findViewById(R.id.password_input);
+        //initialise la vue
         setContentView(R.layout.content_main);
 
+        connect=(Button) findViewById(R.id.connect);
         register=(Button) findViewById(R.id.register);
 
+        //si un click sur un bouton alors déclenche on click
+        connect.setOnClickListener(this);
         register.setOnClickListener(this);
+
+        identifiant_inputText=(EditText)findViewById(R.id.identifiant_input);
+        password_inputText=(EditText)findViewById(R.id.password_input);
     }
 
     @Override
@@ -54,35 +60,30 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     @Override
     public void onClick(View v) {
     switch(v.getId()){
+        //selon les boutons réalise l'action associée
         case R.id.connect:{
-            checkValue();
+            //test si un des champs est vide
+            if (identifiant_inputText.getText().toString().equals("") || password_inputText.getText().toString().equals("")){
+                Toast.makeText(MainActivity.this,R.string.email_or_password_empty,
+                        Toast.LENGTH_SHORT).show();
+                //si oui pop-up avec message venant de R.string
+                return;
+            }
+            else
+                //Mettre la connexion à la base de données ici
+                System.out.println("lol");
+            break;
         }
 
 
 
         case R.id.register:
-            //System.out.println("J'ai cliqué easy");
-            setContentView(R.layout.inscription);
+            Intent intent = new Intent(MainActivity.this,Inscription.class);
+            startActivity(intent);
             break;
     }
     }
-    private void checkValue(){
-        //EditText identifiant_inputText=(EditText)findViewById(R.id.identifiant_input);
-        //EditText password_inputText=(EditText)findViewById(R.id.password_input);
-        final String identifiant_inputStr=identifiant_inputText.getText().toString();
-        final String password_inputStr=password_inputText.getText().toString();
 
-        if (identifiant_inputStr.equals("") || password_inputStr.equals("")){
-            System.out.println("VIDEEEEEEEEEEEEEE");
-            AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-            alertDialog.setTitle("Missing value");
-            alertDialog.setMessage("Please check that you entered correctly a value for both arrival fuel and fuel uplift.");
-            alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                    return;
-                } });
-            alertDialog.show();
-        }
 
-    }
+
 }

@@ -1,4 +1,9 @@
 <resources>
+    <!--Message d'erreurs-->
+
+    <string name="email_or_password_empty">Merci de renseigner les champs de connexion</string>
+    <string name="email_invalide">L\'email est invalide</string>
+
     <!--Page de connexion-->
 
     <string name="app_name">Schedulo</string>
