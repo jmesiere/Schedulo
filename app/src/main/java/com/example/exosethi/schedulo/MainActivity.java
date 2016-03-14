@@ -17,9 +17,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import model.BDDList;
+
 public class MainActivity extends AppCompatActivity implements View.OnTouchListener,View.OnClickListener {
     private Button register=null;
     private Button connect=null;
+    private BDDList bddlist=new BDDList();
     //
     final String EXTRA_LOGIN = "identifiant_input";
     final String EXTRA_PASSWORD = "password_input";
@@ -70,8 +73,18 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                 return;
             }
             else
-                //Mettre la connexion à la base de données ici
-                System.out.println("lol");
+                System.out.println(identifiant_inputText.getText().toString());
+            System.out.println(password_inputText.getText().toString());
+
+                if(bddlist.connexionSucces(identifiant_inputText.getText().toString(),password_inputText.getText().toString())){
+                    Intent intent = new Intent(MainActivity.this,Acceuil.class);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(MainActivity.this,R.string.user_not_found,
+                            Toast.LENGTH_SHORT).show();
+                }
+
             break;
         }
 

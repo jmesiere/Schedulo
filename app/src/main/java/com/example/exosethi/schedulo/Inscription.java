@@ -12,9 +12,13 @@ import android.widget.Toast;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import entities.Studient;
+import model.BDDList;
+
 public class Inscription extends AppCompatActivity implements View.OnTouchListener,View.OnClickListener {
     private Button validate=null;
     private Button cancel=null;
+    private BDDList bddlist=new BDDList();
 
     EditText firstName_inputText;
     EditText name_inputText;
@@ -64,7 +68,7 @@ public class Inscription extends AppCompatActivity implements View.OnTouchListen
                     || password_inputText.getText().toString().equals("")
                     || name_inputText.getText().toString().equals("")
                     || email_inputText.getText().toString().equals("")){
-                Toast.makeText(Inscription.this,R.string.email_or_password_empty,
+                Toast.makeText(Inscription.this,R.string.field_missing,
                         Toast.LENGTH_SHORT).show();
                 //si oui pop-up avec message venant de R.string
                 return;
@@ -76,7 +80,13 @@ public class Inscription extends AppCompatActivity implements View.OnTouchListen
                 return;
             }
             else{
-                //inscription en base
+                bddlist.addStudient(new Studient(firstName_inputText.getText().toString(),
+                        name_inputText.getText().toString(),
+                        email_inputText.getText().toString(),
+                        "test",
+                        password_inputText.getText().toString(),
+                        2));
+                System.out.println(bddlist.getStudient(2).getUsername());
                 System.out.println("EASYYY");
             }
             break;

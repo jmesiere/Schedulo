@@ -3,6 +3,8 @@
 
     <string name="email_or_password_empty">Merci de renseigner les champs de connexion</string>
     <string name="email_invalide">L\'email est invalide</string>
+    <string name="user_not_found">L\'utilisateur n\'existe pas</string>
+    <string name="field_missing">Merci de renseigner tous les champs</string>
 
     <!--Page de connexion-->
 
@@ -23,4 +25,7 @@
     <string name="cancel">Annuler</string>
     <string name="studient">Etudiant</string>
     <string name="teacher">Professeur</string>
+
+    <!--Page d'acceuil-->
+    <string name="acceuil">Acceuil</string>
 </resources>

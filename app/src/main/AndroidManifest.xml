@@ -23,6 +23,9 @@
         <activity
             android:name=".Inscription"
             android:label="@string/inscription" />
+        <activity
+            android:name=".Acceuil"
+            android:label="@string/acceuil" />
     </application>
 
 </manifest>
