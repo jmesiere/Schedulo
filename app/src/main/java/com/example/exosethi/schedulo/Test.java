@@ -14,6 +14,8 @@ public class Test {
 
         bddList.addStudient(st1);
 
+        System.out.println(bddList.connexionSucces("jeremymesiere","123"));
+
         System.out.println(bddList.connexionSucces("",st1.getPassword()));
     }
 }

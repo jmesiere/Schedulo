@@ -28,4 +28,18 @@
 
     <!--Page d'acceuil-->
     <string name="acceuil">Acceuil</string>
+    <string name="period">Prochain cours : </string>
+    <string name="boutonConsulterNote">Notes</string>
+    <string name="boutonConsulterEmploiDuTemps">Emploi du temps</string>
+    <string name="boutonConsulterMatiere">Les matieres</string>
+    <string name="boutonConsulterProfesseur">Les professeurs</string>
+
+    <!-- page notes-->
+    <string name="marks">Notes</string>
+
+    <!--pages cours-->
+    <string name="course">Cours</string>
+
+    <!--page emploi du temps-->
+    <string name="planning">Emploi du temps</string>
 </resources>

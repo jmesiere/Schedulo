@@ -22,12 +22,14 @@ import model.BDDList;
 public class MainActivity extends AppCompatActivity implements View.OnTouchListener,View.OnClickListener {
     private Button register=null;
     private Button connect=null;
-    private BDDList bddlist=new BDDList();
+    private static BDDList bddlist=new BDDList();
     //
-    final String EXTRA_LOGIN = "identifiant_input";
+    final String EXTRA_ID ="user_id";
     final String EXTRA_PASSWORD = "password_input";
     EditText identifiant_inputText;
     EditText password_inputText;
+
+    //GlobalClass globalVariable=(GlobalClass)getApplicationContext();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
         identifiant_inputText=(EditText)findViewById(R.id.identifiant_input);
         password_inputText=(EditText)findViewById(R.id.password_input);
+
+
     }
 
     @Override
@@ -72,18 +76,18 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                 //si oui pop-up avec message venant de R.string
                 return;
             }
-            else
-                System.out.println(identifiant_inputText.getText().toString());
-            System.out.println(password_inputText.getText().toString());
+            else {
+                int numStu = bddlist.connexionSucces(identifiant_inputText.getText().toString(), password_inputText.getText().toString());
+                if (numStu!=0) {
 
-                if(bddlist.connexionSucces(identifiant_inputText.getText().toString(),password_inputText.getText().toString())){
-                    Intent intent = new Intent(MainActivity.this,Acceuil.class);
+                    Intent intent = new Intent(MainActivity.this, Acceuil.class);
+                    intent.putExtra(EXTRA_ID,numStu);
                     startActivity(intent);
-                }
-                else{
-                    Toast.makeText(MainActivity.this,R.string.user_not_found,
+                } else {
+                    Toast.makeText(MainActivity.this, R.string.user_not_found,
                             Toast.LENGTH_SHORT).show();
                 }
+            }
 
             break;
         }

@@ -21,6 +21,12 @@ public class Studient extends User {
         this.listNotes=new ArrayList<Note>();
     }
 
+    public Studient(Studient stu){
+        super(stu);
+        this.numStudient=stu.getNumStudient();
+        this.listNotes=stu.getListNotes();
+    }
+
 
     public int getNumStudient() {
         return numStudient;

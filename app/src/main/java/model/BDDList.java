@@ -20,12 +20,13 @@ public class BDDList implements BDDInterface {
     }
 
     @Override
-    public boolean connexionSucces(String username, String password) {
+    public int connexionSucces(String username, String password) {
+        int numStu=0;
         for(int i = 0;i< getListStudient().size();i++){
             if(getListStudient().get(i).getUsername().equals(username) && getListStudient().get(i).getPassword().equals(password))
-                return true;
+                numStu=getListStudient().get(i).getNumStudient();
         }
-        return false;
+        return numStu;
     }
 
     @Override

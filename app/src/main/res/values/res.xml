@@ -3,6 +3,8 @@
 
         <string name="application_name">Schedulo</string>
         <string name="application_description">Application officielle de la MIAGE Paris Sorbonne !</string>
+        <integer name="numStudient">0</integer>
+        <integer name="numTeacher">0</integer>
 
 
 </resources>

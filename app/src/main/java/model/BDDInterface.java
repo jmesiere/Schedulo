@@ -11,7 +11,7 @@ import entities.Teacher;
  */
 public interface BDDInterface {
     //vérifie si l'utilisateur existe
-    public boolean connexionSucces(String username,String password);
+    public int connexionSucces(String username,String password);
 
     //retourne un etudiant selon son numero
     public Studient getStudient(int numStudient);
