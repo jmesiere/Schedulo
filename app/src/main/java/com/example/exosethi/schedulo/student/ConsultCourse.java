@@ -1,9 +1,11 @@
-package com.example.exosethi.schedulo;
+package com.example.exosethi.schedulo.student;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
+
+import com.example.exosethi.schedulo.R;
 
 public class ConsultCourse extends AppCompatActivity implements View.OnTouchListener,View.OnClickListener {
 
@@ -13,8 +15,6 @@ public class ConsultCourse extends AppCompatActivity implements View.OnTouchList
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.consultcourse);
-
-
 
     }
 

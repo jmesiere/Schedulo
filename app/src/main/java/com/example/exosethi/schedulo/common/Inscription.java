@@ -1,4 +1,4 @@
-package com.example.exosethi.schedulo;
+package com.example.exosethi.schedulo.common;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,10 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.exosethi.schedulo.R;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import entities.Studient;
+import entities.Etudiant;
 import model.BDDList;
 
 public class Inscription extends AppCompatActivity implements View.OnTouchListener,View.OnClickListener {
@@ -29,15 +30,7 @@ public class Inscription extends AppCompatActivity implements View.OnTouchListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /* Permet de faire transiter des informations entre plusieurs activités
-        Intent intent = getIntent();
-        EditText loginDisplay = (EditText) findViewById(R.id.identifiant);
-        EditText passwordDisplay = (EditText) findViewById(R.id.password);
 
-        if (intent != null) {
-            loginDisplay.setText(intent.getStringExtra(EXTRA_LOGIN));
-            passwordDisplay.setText(intent.getStringExtra(EXTRA_PASSWORD));
-        }*/
         //initialise la vue
         setContentView(R.layout.inscription);
 
@@ -80,14 +73,14 @@ public class Inscription extends AppCompatActivity implements View.OnTouchListen
                 return;
             }
             else{
-                bddlist.addStudient(new Studient(firstName_inputText.getText().toString(),
+                bddlist.addStudent(new Etudiant(-1, firstName_inputText.getText().toString(),
                         name_inputText.getText().toString(),
                         email_inputText.getText().toString(),
                         "test",
                         password_inputText.getText().toString(),
                         2));
-                System.out.println(bddlist.getStudient(2).getUsername());
-                System.out.println("EASYYY");
+                System.out.println(bddlist.getStudent(2).getMailUtilisateur());
+                System.out.println("Etudiant inscrit !");
             }
             break;
         }

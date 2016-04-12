@@ -1,31 +1,31 @@
 package model;
 
-import java.net.PasswordAuthentication;
 import java.util.ArrayList;
 
-import entities.Studient;
-import entities.Teacher;
+import entities.Session;
+import entities.Etudiant;
+import entities.Professeur;
 
-/**
- * Created by Jeremy Mesiere on 14/03/2016.
- */
 public interface BDDInterface {
     //vérifie si l'utilisateur existe
-    public int connexionSucces(String username,String password);
+    public int connexionSuccess(String mailUtilisateur,String mdpUtilisateur);
 
     //retourne un etudiant selon son numero
-    public Studient getStudient(int numStudient);
+    public Etudiant getStudent(int namStudent);
 
     //retourne tous les étudiants d'une classe
-    public ArrayList<Studient> getAllStudientFromTraining(int numClass);
+    public ArrayList<Etudiant> getAllStudentFromClass(int numClass);
 
     //Retourne un professeur selon son numero
-    public Teacher getTeacher(int numTeacher);
+    public Professeur getTeacher(int numTeacher);
 
     //Retourne tous les professeurs selon une matiere
-    public ArrayList<Teacher> getAllTeacherFromMatiere(int numMatiere);
+    public ArrayList<Professeur> getAllTeacherFromMatiere(int numMatiere);
 
-    public boolean addStudient(Studient studient);
+    public boolean addStudent(Etudiant etudiant);
+
+    public ArrayList<Session> allCourseFromADay(String str);
+
 
 
 

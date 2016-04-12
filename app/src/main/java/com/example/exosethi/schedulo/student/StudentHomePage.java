@@ -1,4 +1,4 @@
-package com.example.exosethi.schedulo;
+package com.example.exosethi.schedulo.student;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,18 +6,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import com.example.exosethi.schedulo.common.ConsultPlanning;
+import com.example.exosethi.schedulo.R;
 
-import entities.Studient;
+import entities.Etudiant;
 import model.BDDList;
 
-public class Acceuil extends AppCompatActivity implements View.OnTouchListener,View.OnClickListener {
+public class StudentHomePage extends AppCompatActivity implements View.OnTouchListener,View.OnClickListener {
 
-    //final GlobalClass globalVariable =(GlobalClass)getApplicationContext();
     final String EXTRA_ID ="user_id";
     //variable à changer selon l'utilisateur/jour
     private String nextPeriod="Algorithme de 9h30 à 12h30";
@@ -26,25 +24,25 @@ public class Acceuil extends AppCompatActivity implements View.OnTouchListener,V
     private Button marks=null;
     private Button planning=null;
     private Button teachers=null;
-    Studient st;
+    Etudiant st;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.acceuil);
+        setContentView(R.layout.studenthomepage);
 
         Intent intent = getIntent();
 
         if (intent != null) {
-            st=bddlist.getStudient(intent.getIntExtra(EXTRA_ID,1));
+            st=bddlist.getStudent(intent.getIntExtra(EXTRA_ID, 1));
         }
 
         TextView name=(TextView)(findViewById(R.id.name));
         TextView firstName=(TextView)(findViewById(R.id.firstName));
         TextView nextP=(TextView)(findViewById(R.id.nextPeriod));
-        name.setText(st.getName());
-        firstName.setText((st.getFirstName()));
+        name.setText(st.getNomUtilisateur());
+        firstName.setText((st.getPrenomUtilisateur()));
         nextP.setText(nextPeriod);
 
         course=(Button) findViewById(R.id.consulterMatiere);
@@ -70,23 +68,23 @@ public class Acceuil extends AppCompatActivity implements View.OnTouchListener,V
         switch (v.getId()) {
             //selon les boutons réalise l'action associée
             case R.id.consulterEmploiDuTemps: {
-                Intent intent = new Intent(Acceuil.this,ConsultPlanning.class);
+                Intent intent = new Intent(StudentHomePage.this,ConsultPlanning.class);
                 startActivity(intent);
                 break;
             }
             case R.id.consulterProfesseur:{
-                Intent intent = new Intent(Acceuil.this,ConsultTeachers.class);
+                Intent intent = new Intent(StudentHomePage.this,ConsultTeachers.class);
                 startActivity(intent);
                 break;
 
             }
             case R.id.consulterMatiere:{
-                Intent intent = new Intent(Acceuil.this,ConsultCourse.class);
+                Intent intent = new Intent(StudentHomePage.this,ConsultCourse.class);
                 startActivity(intent);
                 break;
             }
             case R.id.consulterNotes:{
-                Intent intent = new Intent(Acceuil.this,ConsultMarks.class);
+                Intent intent = new Intent(StudentHomePage.this,ConsultMarks.class);
                 startActivity(intent);
                 break;
             }

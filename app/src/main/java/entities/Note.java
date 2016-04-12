@@ -1,8 +1,5 @@
 package entities;
 
-/**
- * Created by Jeremy Mesiere on 14/03/2016.
- */
 public class Note {
     private double mark;
     private double coef;

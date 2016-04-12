@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.exosethi.schedulo.MainActivity"
+            android:name=".common.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
@@ -21,22 +21,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Inscription"
+            android:name=".common.Inscription"
             android:label="@string/inscription" />
         <activity
-            android:name=".Acceuil"
+            android:name=".student.StudentHomePage"
             android:label="@string/acceuil" />
         <activity
-            android:name=".ConsultMarks"
+            android:name=".teacher.TeacherHomePage"
+            android:label="@string/acceuil" />
+        <activity
+            android:name=".student.ConsultMarks"
             android:label="@string/marks" />
         <activity
-            android:name=".ConsultTeachers"
+            android:name=".student.ConsultTeachers"
             android:label="@string/teacher"/>
         <activity
-            android:name=".ConsultPlanning"
+            android:name=".common.ConsultPlanning"
             android:label="@string/planning"/>
         <activity
-            android:name=".ConsultCourse"
+            android:name=".student.ConsultCourse"
             android:label="@string/course"/>
     </application>
 

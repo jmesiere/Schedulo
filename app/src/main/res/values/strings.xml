@@ -23,16 +23,18 @@
     <string name="email">Adresse e-mail :</string>
     <string name="validate">Valider</string>
     <string name="cancel">Annuler</string>
-    <string name="studient">Etudiant</string>
+    <string name="etudiant">Etudiant</string>
     <string name="teacher">Professeur</string>
 
-    <!--Page d'acceuil-->
+    <!--Page studenthomepage && teacherhomepage-->
     <string name="acceuil">Acceuil</string>
     <string name="period">Prochain cours : </string>
     <string name="boutonConsulterNote">Notes</string>
     <string name="boutonConsulterEmploiDuTemps">Emploi du temps</string>
     <string name="boutonConsulterMatiere">Les matieres</string>
     <string name="boutonConsulterProfesseur">Les professeurs</string>
+    <string name="boutonNotifierRetard">Notifier un retard</string>
+    <string name="boutonNotifierAbsence">Notifier une absence</string>
 
     <!-- page notes-->
     <string name="marks">Notes</string>
@@ -42,4 +44,10 @@
 
     <!--page emploi du temps-->
     <string name="planning">Emploi du temps</string>
+    <string name="selectdate">Select Date</string>
+
+
+    <string name="notification">Notification www.tutos-android.com</string>
+    <string name="notification_title">Ma premiere notification www.tutos-android.com</string>
+    <string name="notification_desc">Cliquez sur moi je suis une notification</string>
 </resources>

@@ -1,21 +1,17 @@
-package com.example.exosethi.schedulo;
+package com.example.exosethi.schedulo.common;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.exosethi.schedulo.R;
+import com.example.exosethi.schedulo.student.StudentHomePage;
+import com.example.exosethi.schedulo.teacher.TeacherHomePage;
 
 import model.BDDList;
 
@@ -34,15 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /* Permet de faire transiter des informations entre plusieurs activités
-        Intent intent = getIntent();
-        EditText loginDisplay = (EditText) findViewById(R.id.identifiant);
-        EditText passwordDisplay = (EditText) findViewById(R.id.password);
 
-        if (intent != null) {
-            loginDisplay.setText(intent.getStringExtra(EXTRA_LOGIN));
-            passwordDisplay.setText(intent.getStringExtra(EXTRA_PASSWORD));
-        }*/
         //initialise la vue
         setContentView(R.layout.content_main);
 
@@ -77,13 +65,21 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                 return;
             }
             else {
-                int numStu = bddlist.connexionSucces(identifiant_inputText.getText().toString(), password_inputText.getText().toString());
-                if (numStu!=0) {
+                int numUtil = bddlist.connexionSuccess(identifiant_inputText.getText().toString(), password_inputText.getText().toString());
+                if (numUtil!=0) {
+                    if(bddlist.getUtilisateur(numUtil).getTypeUtilisateur()==1){
+                        Intent intent = new Intent(MainActivity.this, StudentHomePage.class);
+                        intent.putExtra(EXTRA_ID,numUtil);
+                        startActivity(intent);
+                    }else{
+                        Intent intent = new Intent(MainActivity.this, TeacherHomePage.class);
+                        intent.putExtra(EXTRA_ID,numUtil);
+                        startActivity(intent);
+                    }
 
-                    Intent intent = new Intent(MainActivity.this, Acceuil.class);
-                    intent.putExtra(EXTRA_ID,numStu);
-                    startActivity(intent);
-                } else {
+                    }
+
+                else {
                     Toast.makeText(MainActivity.this, R.string.user_not_found,
                             Toast.LENGTH_SHORT).show();
                 }
@@ -91,8 +87,6 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
             break;
         }
-
-
 
         case R.id.register:
             Intent intent = new Intent(MainActivity.this,Inscription.class);
