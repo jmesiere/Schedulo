@@ -78,7 +78,7 @@ public class Inscription extends AppCompatActivity implements View.OnTouchListen
                         email_inputText.getText().toString(),
                         "test",
                         password_inputText.getText().toString(),
-                        2));
+                        2,2));
                 System.out.println(bddlist.getStudent(2).getMailUtilisateur());
                 System.out.println("Etudiant inscrit !");
             }

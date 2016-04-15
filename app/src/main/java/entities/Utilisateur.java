@@ -22,6 +22,18 @@ public class Utilisateur {
     private String mdpUtilisateur;
     private String dateInscriptionUtilisateur;
     private int typeUtilisateur;
+    private int idClasse;
+
+    public Utilisateur(int idUtilisateur, String mailUtilisateur, String nomUtilisateur, String prenomUtilisateur, String mdpUtilisateur, String dateInscriptionUtilisateur, int typeUtilisateur, int idClasse){
+        this.idUtilisateur = idUtilisateur;
+        this.mailUtilisateur = mailUtilisateur;
+        this.nomUtilisateur = nomUtilisateur;
+        this.prenomUtilisateur = prenomUtilisateur;
+        this.mdpUtilisateur = mdpUtilisateur;
+        this.dateInscriptionUtilisateur = dateInscriptionUtilisateur;
+        this.typeUtilisateur = typeUtilisateur;
+        this.idClasse = idClasse;
+    }
 
     public Utilisateur(int idUtilisateur, String mailUtilisateur, String nomUtilisateur, String prenomUtilisateur, String mdpUtilisateur, String dateInscriptionUtilisateur, int typeUtilisateur){
         this.idUtilisateur = idUtilisateur;
@@ -87,5 +99,13 @@ public class Utilisateur {
 
     public void setTypeUtilisateur(int typeUtilisateur) {
         this.typeUtilisateur = typeUtilisateur;
+    }
+
+    public int getIdClasse(){
+        return idClasse;
+    }
+
+    public void setIdClasse(int idClasse){
+        this.idClasse = idClasse;
     }
 }

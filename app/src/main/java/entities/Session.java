@@ -29,6 +29,30 @@ public class Session {
         this.idCours = idCours;
     }
 
+    public Session(Session se){
+        this.idSession = se.getIdSession();
+        this.dateSession = se.getDateSession();
+        this.dureeSession = se.getDureeSession();
+        this.contenuSession = se.getContenuSession();
+        this.idCours = se.getIdCours();
+    }
+
+    public String getDate(){
+        String str = this.getDateSession();
+        String strTmp="";
+        str=str.substring(0,10);
+        str=str.replace("-", "/");
+        strTmp+=str.substring(8, 10);
+        strTmp+=str.substring(4, 8);
+        strTmp+=str.substring(0,4);
+        return strTmp;
+    }
+
+    public String getHeure(){
+        String str = this.getDateSession();
+        return str.substring(12,16);
+    }
+
     public int getIdSession() {
         return idSession;
     }

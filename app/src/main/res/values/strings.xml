@@ -37,7 +37,8 @@
     <string name="boutonNotifierAbsence">Notifier une absence</string>
 
     <!-- page notes-->
-    <string name="marks">Notes</string>
+    <string name="boutonAccueil">Acceuil</string>
+    <string name="consulterNote">Notes</string>
 
     <!--pages cours-->
     <string name="course">Cours</string>
@@ -47,7 +48,8 @@
     <string name="selectdate">Select Date</string>
 
 
-    <string name="notification">Notification www.tutos-android.com</string>
-    <string name="notification_title">Ma premiere notification www.tutos-android.com</string>
-    <string name="notification_desc">Cliquez sur moi je suis une notification</string>
+
+    <string name="notification">Notification</string>
+    <string name="notification_title">Schedulo Retard</string>
+    <string name="notification_desc">Je vais avoir du retard</string>
 </resources>

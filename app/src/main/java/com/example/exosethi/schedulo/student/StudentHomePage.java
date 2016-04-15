@@ -84,7 +84,7 @@ public class StudentHomePage extends AppCompatActivity implements View.OnTouchLi
                 break;
             }
             case R.id.consulterNotes:{
-                Intent intent = new Intent(StudentHomePage.this,ConsultMarks.class);
+                Intent intent = new Intent(StudentHomePage.this,ConsultationNote.class);
                 startActivity(intent);
                 break;
             }

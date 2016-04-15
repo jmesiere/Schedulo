@@ -30,8 +30,8 @@
             android:name=".teacher.TeacherHomePage"
             android:label="@string/acceuil" />
         <activity
-            android:name=".student.ConsultMarks"
-            android:label="@string/marks" />
+            android:name=".student.ConsultationNote"
+            android:label="@string/consulterNote" />
         <activity
             android:name=".student.ConsultTeachers"
             android:label="@string/teacher"/>

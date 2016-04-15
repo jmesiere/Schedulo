@@ -1,5 +1,4 @@
 package entities;
-
 /*
 DROP TABLE IF EXISTS Evaluation;
         CREATE TABLE Evaluation (
@@ -18,12 +17,16 @@ public class Evaluation {
     private String dateEvaluation;
     private String dureeEvaluation;
     private int idCours;
+    private double coefficient;
 
-    public Evaluation (int idEvaluation, String dateEvaluation, String dureeEvaluation, int idCours){
+
+    public Evaluation (int idEvaluation, String dateEvaluation, String dureeEvaluation, int idCours, double coefficient){
         this.idEvaluation = idEvaluation;
         this.dateEvaluation = dateEvaluation;
         this.dureeEvaluation = dureeEvaluation;
         this.idCours = idCours;
+        this.coefficient = coefficient;
+
     }
 
     public int getIdEvaluation() {
@@ -56,5 +59,13 @@ public class Evaluation {
 
     public void setIdCours(int idCours) {
         this.idCours = idCours;
+    }
+
+    public double getCoefficient() {
+        return coefficient;
+    }
+
+    public void setCOefficient(int coefficient) {
+        this.coefficient = coefficient;
     }
 }
