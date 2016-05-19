@@ -4,87 +4,60 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <TextView
         android:id="@+id/title"
         android:textSize="40dp"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/inscription" />
 
-
-
-
-        <TextView
-            android:id="@+id/firstName"
-            android:textSize="18dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/firstName" />
-
-        <EditText
+        <custom_font.MyEditText
             android:id="@+id/editFirstName"
+            android:hint="@string/firstName"
+            android:textColorHint="#a9b0c3"
+            android:textSize="18dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"/>
+            android:inputType="text"/>
 
-
-
-        <TextView
-            android:id="@+id/name"
-            android:textSize="18dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/name" />
-
-        <EditText
+        <custom_font.MyEditText
             android:id="@+id/editName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName" />
-
-
-
-        <TextView
-            android:id="@+id/email"
+            android:hint="@string/name"
+            android:textColorHint="#a9b0c3"
             android:textSize="18dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/email" />
+            android:ems="10"
+            android:inputType="text" />
 
-        <EditText
+        <custom_font.MyEditText
             android:id="@+id/editEmail"
+            android:hint="@string/email"
+            android:textColorHint="#a9b0c3"
+            android:textSize="18dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:ems="10" />
 
-
-        <TextView
-            android:id="@+id/password"
-            android:textSize="18dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/user_password" />
-
-        <EditText
+        <custom_font.MyEditText
             android:id="@+id/inputPassword"
+            android:hint="@string/user_password"
+            android:textSize="18dp"
+            android:textColorHint="#a9b0c3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:ems="10" />
 
-
     <RadioGroup
-
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
-
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/groupButton">
 
         <TextView
             android:id="@+id/status"
@@ -108,30 +81,67 @@
             android:text="@string/teacher" />
     </RadioGroup>
 
+    <custom_font.MyTextView
+        android:id="@+id/valider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/validate"
+        android:textStyle="bold"
+        android:background="@drawable/round"
+        android:textColor="#CBD1DC"
+        android:gravity="center"
+        android:padding="14dp"
+        android:layout_below="@+id/groupButton"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:onClick="onClick"
+        android:clickable="true"/>
+
+
     <LinearLayout
-
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginLeft="100dp">
-
-
-
-        <Button
-            android:id="@+id/valider"
-            android:layout_width="wrap_content"
+        android:layout_above="@+id/ter"
+        android:gravity="center"
+        android:padding="16dp"
+        >
+        <custom_font.MyTextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="@string/validate" />
+            android:text="@string/orSignIn"
+            android:gravity="center"
+            android:textColor="#2C3646"/>
 
-        <Button
-            android:id="@+id/annuler"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/cancel" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/fb"
+            android:layout_marginRight="5dp"
+            />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/google"/>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/twiter"
+            android:layout_marginLeft="5dp"/>
 
     </LinearLayout>
 
-
+    <custom_font.MyTextView
+        android:id="@+id/ter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/contract"
+        android:textColor="#a9b0c3"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:textSize="12dp"
+        android:gravity="center"
+        />
 </LinearLayout>

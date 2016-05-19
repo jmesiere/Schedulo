@@ -78,7 +78,12 @@ public class TeacherHomePage extends AppCompatActivity implements View.OnTouchLi
             }
             case R.id.notifierRetard:{
                 Toast.makeText(getBaseContext(), "Ajout d'une notification", Toast.LENGTH_SHORT).show();
-                createNotification();
+                createNotificationRetard();
+                break;
+            }
+            case R.id.notifierAbsence:{
+                Toast.makeText(getBaseContext(), "Ajout d'une notification", Toast.LENGTH_SHORT).show();
+                createNotificationAbsence();
                 break;
             }
 
@@ -87,7 +92,7 @@ public class TeacherHomePage extends AppCompatActivity implements View.OnTouchLi
         }
 
 
-    private final void createNotification(){
+    private final void createNotificationRetard(){
 
         final NotificationManager mNotification = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
@@ -100,8 +105,28 @@ public class TeacherHomePage extends AppCompatActivity implements View.OnTouchLi
                 .setWhen(System.currentTimeMillis())
                 .setTicker("AAAA")
                 .setSmallIcon(R.drawable.ic_launcher)
-                .setContentTitle(getResources().getString(R.string.notification_title))
-                .setContentText(getResources().getString(R.string.notification_desc))
+                .setContentTitle(getResources().getString(R.string.notification_title_retard))
+                .setContentText(getResources().getString(R.string.notification_desc_retard))
+                .setContentIntent(pendingIntent);
+
+        mNotification.notify(1, builder.build());
+    }
+
+    private final void createNotificationAbsence(){
+
+        final NotificationManager mNotification = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        final Intent launchNotifiactionIntent = new Intent(this, TeacherHomePage.class);
+        final PendingIntent pendingIntent = PendingIntent.getActivity(this,2
+                , launchNotifiactionIntent,
+                PendingIntent.FLAG_ONE_SHOT);
+
+        Notification.Builder builder = new Notification.Builder(this)
+                .setWhen(System.currentTimeMillis())
+                .setTicker("AAAA")
+                .setSmallIcon(R.drawable.ic_launcher)
+                .setContentTitle(getResources().getString(R.string.notification_title_absence))
+                .setContentText(getResources().getString(R.string.notification_desc_absence))
                 .setContentIntent(pendingIntent);
 
         mNotification.notify(1, builder.build());

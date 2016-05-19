@@ -13,18 +13,20 @@ import com.example.exosethi.schedulo.R;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import custom_font.MyEditText;
+import custom_font.MyTextView;
 import entities.Etudiant;
 import model.BDDList;
 
 public class Inscription extends AppCompatActivity implements View.OnTouchListener,View.OnClickListener {
-    private Button validate=null;
-    private Button cancel=null;
+    private MyTextView validate=null;
     private BDDList bddlist=new BDDList();
 
-    EditText firstName_inputText;
-    EditText name_inputText;
-    EditText email_inputText;
-    EditText password_inputText;
+    MyEditText firstName_inputText;
+    MyEditText name_inputText;
+    MyEditText email_inputText;
+    MyEditText password_inputText;
 
 
     @Override
@@ -34,16 +36,14 @@ public class Inscription extends AppCompatActivity implements View.OnTouchListen
         //initialise la vue
         setContentView(R.layout.inscription);
 
-        validate=(Button) findViewById(R.id.valider);
-        cancel=(Button) findViewById(R.id.annuler);
+        validate=(MyTextView) findViewById(R.id.valider);
 
         //si un click sur un bouton alors déclenche on click
         validate.setOnClickListener(this);
-        cancel.setOnClickListener(this);
-        firstName_inputText=(EditText)findViewById(R.id.editFirstName);
-        name_inputText=(EditText)findViewById(R.id.editName);
-        email_inputText=(EditText)findViewById(R.id.editEmail);
-        password_inputText=(EditText)findViewById(R.id.inputPassword);
+        firstName_inputText=(MyEditText)findViewById(R.id.editFirstName);
+        name_inputText=(MyEditText)findViewById(R.id.editName);
+        email_inputText=(MyEditText)findViewById(R.id.editEmail);
+        password_inputText=(MyEditText)findViewById(R.id.inputPassword);
     }
 
     @Override
@@ -86,11 +86,6 @@ public class Inscription extends AppCompatActivity implements View.OnTouchListen
         }
 
 
-
-        case R.id.annuler:
-            Intent intent = new Intent(Inscription.this,MainActivity.class);
-            startActivity(intent);
-            break;
     }
     }
 

@@ -34,7 +34,7 @@ public class Test {
 
         System.out.println(formater.format(aujourdhui));*/
 
-        SimpleDateFormat formater = null;
+        /*SimpleDateFormat formater = null;
         Date aujourdhui = new Date();
         formater = new SimpleDateFormat("dd/MM/yyyy");
         String str = formater.format(aujourdhui);
@@ -42,6 +42,6 @@ public class Test {
 
         for(int i=0;i<ls.size();i++){
             System.out.println(ls.get(i).getHeure()+" : "+ls.get(i).getContenuSession());
-        }
+        }*/
     }
 }

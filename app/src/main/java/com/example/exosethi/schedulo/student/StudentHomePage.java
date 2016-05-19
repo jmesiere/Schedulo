@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.exosethi.schedulo.common.ConsultPlanning;
 import com.example.exosethi.schedulo.R;
 
+import custom_font.MyTextView;
 import entities.Etudiant;
 import model.BDDList;
 
@@ -19,11 +20,17 @@ public class StudentHomePage extends AppCompatActivity implements View.OnTouchLi
     final String EXTRA_ID ="user_id";
     //variable à changer selon l'utilisateur/jour
     private String nextPeriod="Algorithme de 9h30 à 12h30";
+    private String strFinDesCours="18h30";
+    private String strProfesseurAbsent="0";
+    private String strProfesseurRetard="1";
+    private String strExamenPrevu="0";
+    private String strDevoirAttendus="2";
+
     private static BDDList bddlist=new BDDList();
-    private Button course=null;
-    private Button marks=null;
-    private Button planning=null;
-    private Button teachers=null;
+    private MyTextView course=null;
+    private MyTextView marks=null;
+    private MyTextView planning=null;
+    private MyTextView teachers=null;
     Etudiant st;
 
     @Override
@@ -38,17 +45,23 @@ public class StudentHomePage extends AppCompatActivity implements View.OnTouchLi
             st=bddlist.getStudent(intent.getIntExtra(EXTRA_ID, 1));
         }
 
-        TextView name=(TextView)(findViewById(R.id.name));
-        TextView firstName=(TextView)(findViewById(R.id.firstName));
-        TextView nextP=(TextView)(findViewById(R.id.nextPeriod));
-        name.setText(st.getNomUtilisateur());
-        firstName.setText((st.getPrenomUtilisateur()));
-        nextP.setText(nextPeriod);
+        TextView prochainCours=(TextView)(findViewById(R.id.nextPeriod));
+        TextView finDesCours=(TextView)(findViewById(R.id.heureFinDesCours));
+        TextView profAbsent=(TextView)(findViewById(R.id.nbProfAbsent));
+        TextView profRetard=(TextView)(findViewById(R.id.nbProfRetard));
+        TextView examenPrevu=(TextView)(findViewById(R.id.nbExamen));
+        TextView devoirPrevu=(TextView)(findViewById(R.id.nbDevoir));
+        prochainCours.setText(nextPeriod);
+        finDesCours.setText(strFinDesCours);
+        profAbsent.setText(strProfesseurAbsent);
+        profRetard.setText(strProfesseurRetard);
+        examenPrevu.setText(strExamenPrevu);
+        devoirPrevu.setText(strDevoirAttendus);
 
-        course=(Button) findViewById(R.id.consulterMatiere);
-        marks=(Button) findViewById(R.id.consulterNotes);
-        planning=(Button) findViewById(R.id.consulterEmploiDuTemps);
-        teachers=(Button) findViewById(R.id.consulterProfesseur);
+        course=(MyTextView) findViewById(R.id.consulterMatiere);
+        marks=(MyTextView) findViewById(R.id.consulterNotes);
+        planning=(MyTextView) findViewById(R.id.consulterEmploiDuTemps);
+        teachers=(MyTextView) findViewById(R.id.consulterProfesseur);
 
         //si un click sur un bouton alors déclenche on click
         course.setOnClickListener(this);

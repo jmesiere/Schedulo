@@ -1,9 +1,22 @@
 package model;
 
+import android.util.Log;
+
+import com.example.exosethi.schedulo.mysqlcrud.JSONParser;
+import com.example.exosethi.schedulo.mysqlcrud.RequestHandler;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 import entities.Classe;
 import entities.Cours;
@@ -14,6 +27,7 @@ import entities.Etudiant;
 import entities.Professeur;
 import entities.Utilisateur;
 
+
 public class BDDList implements BDDInterface {
 
     //data
@@ -21,7 +35,7 @@ public class BDDList implements BDDInterface {
     Etudiant st2 = new Etudiant(2, "vincent.guyonvarch@gmail.com", "guyonvarch", "vincent", "123", "2016-04-02 09:26:02", 1, 2);
     Etudiant st3 = new Etudiant(3, "franck.vieira@gmail.com", "franck", "vieira", "123", "2016-04-01 16:33:10", 1, 5);
 
-    Professeur pr1=new Professeur(4, "didou@gmail.com", "daniel", "diaz", "123", "2016-04-01 16:33:10", 2);
+    Professeur pr1 = new Professeur(4, "didou@gmail.com", "daniel", "diaz", "123", "2016-04-01 16:33:10", 2);
 
     public ArrayList<Utilisateur> listUtilisateurs;
 
@@ -70,7 +84,7 @@ public class BDDList implements BDDInterface {
     Session ss10 = new Session(10, "2016-15-04 14:00:00", "0000-00-00 03:00:00", "Session 2 Anglais", 80);
     private ArrayList<Session> listSession;
 
-    Evaluation ev1 = new Evaluation(1, "2016-11-04 09:30:00", "0000-00-00 03:00:00", 40,1);
+    Evaluation ev1 = new Evaluation(1, "2016-11-04 09:30:00", "0000-00-00 03:00:00", 40, 1);
     Evaluation ev11 = new Evaluation(2, "2016-11-04 10:30:00", "0000-00-00 03:00:00", 40, 1);
     Evaluation ev111 = new Evaluation(3, "2016-11-04 11:30:00", "0000-00-00 03:00:00", 40, 1);
     Evaluation ev1111 = new Evaluation(4, "2016-11-04 14:30:00", "0000-00-00 03:00:00", 40, 1);
@@ -92,7 +106,7 @@ public class BDDList implements BDDInterface {
     private ArrayList<Resultat> listResultat;
 
 
-    public BDDList(){
+    public BDDList() {
         this.listUtilisateurs = new ArrayList<Utilisateur>();
         this.listClasse = new ArrayList<Classe>();
         this.listCours = new ArrayList<Cours>();
@@ -166,6 +180,30 @@ public class BDDList implements BDDInterface {
         }
         return numUtil;
     }
+
+    /*public int connexionSuccess(String mailUtilisateur,String mdpUtilisateur) {
+        HashMap<String, String> params = new HashMap<>();
+        params.put("username", mailUtilisateur);
+        params.put("password",mdpUtilisateur);
+        RequestHandler rh =new RequestHandler();
+        System.out.println(rh);
+        String ip = "http://10.30.40.113:7777/schedulo/Middle/connexionSucces.php";
+        String res = rh.sendPostRequest(ip,params);
+        System.out.println("---------------------------------------RES------------------------------");
+        System.out.println("RES :"+res);
+        return Integer.parseInt(res);
+    }*/
+
+   /* public int connexionSuccess(String mailUtilisateur,String mdpUtilisateur) {
+		List<NameValuePair> params = new ArrayList<NameValuePair>();
+		params.add(new BasicNameValuePair("username", mailUtilisateur));
+		params.add(new BasicNameValuePair("password",mdpUtilisateur));
+        JSONParser objMid = new JSONParser();
+        String urlConnexion = "http://10.30.40.113:7777/schedulo/Middle/connexionSucces.php";
+        String res = objMid.makeHttpRequest(urlConnexion,"POST",params);
+        System.out.println("RES :"+res);
+        return Integer.parseInt(res);
+    }*/
 
     public Utilisateur getUtilisateur(int numUtil){
         for(int i = 0;i< getListUtilisateurs().size();i++){

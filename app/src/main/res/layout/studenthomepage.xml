@@ -9,79 +9,233 @@
         android:layout_height="wrap_content">
 
         <TextClock
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="#CBD1DC"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
             android:format12Hour="dd MMMM yyyy"
             android:format24Hour="dd MMMM yyyy"
             android:id="@+id/textClock" />
 
-
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:id="@+id/name" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text=""
-                android:id="@+id/firstName" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/period"
-                android:id="@+id/period" />
+                android:id="@+id/period"
+                android:textSize="16dp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:textSize="16dp"
+                android:gravity="center"
                 android:text=""
                 android:id="@+id/nextPeriod" />
 
         </LinearLayout>
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/boutonConsulterEmploiDuTemps"
-            android:id="@+id/consulterEmploiDuTemps" />
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp">
 
-        <Button
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/finDesCours"
+                android:id="@+id/finDesCours"
+                android:textSize="16dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:text=""
+                android:id="@+id/heureFinDesCours" />
+
+        </LinearLayout>
+
+            <custom_font.MyTextView
+                android:id="@+id/consulterEmploiDuTemps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/boutonConsulterEmploiDuTemps"
+                android:textStyle="bold"
+                android:background="@drawable/round"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#CBD1DC"
+                android:gravity="center"
+                android:padding="14dp"
+                android:onClick="onClick"
+                android:clickable="true"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/boutonConsulterProfesseur"
-            android:id="@+id/consulterProfesseur" />
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp">
 
-        <Button
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:id="@+id/nbProfAbsent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:text="@string/profAbsent"
+                android:id="@+id/profAbsent" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/boutonConsulterMatiere"
-            android:id="@+id/consulterMatiere" />
-        <Button
-            android:layout_width="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:id="@+id/nbProfRetard" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:text="@string/profRetard"
+                android:id="@+id/profRetard" />
+
+        </LinearLayout>
+
+            <custom_font.MyTextView
+                android:id="@+id/consulterProfesseur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/boutonConsulterProfesseur"
+                android:textStyle="bold"
+                android:background="@drawable/round"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#CBD1DC"
+                android:gravity="center"
+                android:padding="14dp"
+                android:onClick="onClick"
+                android:clickable="true"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/boutonConsulterNote"
-            android:id="@+id/consulterNotes" />
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:id="@+id/nbExamen" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:text="@string/examenPrevu"
+                android:id="@+id/examen" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:id="@+id/nbDevoir" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:text="@string/devoirAttendu"
+                android:id="@+id/devoir" />
+
+        </LinearLayout>
+
+            <custom_font.MyTextView
+                android:id="@+id/consulterMatiere"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/boutonConsulterMatiere"
+                android:textStyle="bold"
+                android:background="@drawable/round"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#CBD1DC"
+                android:gravity="center"
+                android:padding="14dp"
+                android:onClick="onClick"
+                android:clickable="true"/>
 
 
-
+            <custom_font.MyTextView
+                android:id="@+id/consulterNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/boutonConsulterNote"
+                android:textStyle="bold"
+                android:background="@drawable/round"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#CBD1DC"
+                android:gravity="center"
+                android:padding="14dp"
+                android:onClick="onClick"
+                android:clickable="true"/>
     </LinearLayout>
 </LinearLayout>
